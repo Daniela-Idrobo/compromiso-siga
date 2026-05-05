@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 33% 98%;
+    --gradient-landing: linear-gradient(180deg, #F8FAFC 0%, #39A900 100%);
+    --foreground: 200 100% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 100% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 100% 15%;
+
+    --primary: 101 100% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 100% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 25% 94%;
+    --muted-foreground: 200 15% 45%;
+
+    --accent: 200 100% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 88%;
+    --ring: 101 100% 33%;
+
+    --radius: 0.5rem;
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --glass-bg: hsla(0, 0%, 100%, 0.7);
+    --glass-border: hsla(0, 0%, 100%, 0.4);
+    --glass-shadow: 0 8px 32px 0 hsla(200, 100%, 15%, 0.08);
+    --soft-shadow: 0 2px 8px 0 hsla(200, 100%, 15%, 0.06);
+    --soft-shadow-hover: 0 8px 24px 0 hsla(200, 100%, 15%, 0.12);
+    --card-shadow: 0 1px 4px 0 hsla(200, 100%, 15%, 0.05);
+
+    --sidebar-background: 200 100% 15%;
+    --sidebar-foreground: 210 25% 94%;
+    --sidebar-primary: 101 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 80% 22%;
+    --sidebar-accent-foreground: 210 25% 94%;
+    --sidebar-border: 200 60% 25%;
+    --sidebar-ring: 101 100% 40%;
+  }
+
+  .dark {
+    --background: 200 100% 8%;
+    --foreground: 210 25% 94%;
+    --card: 200 80% 12%;
+    --card-foreground: 210 25% 94%;
+    --popover: 200 80% 12%;
+    --popover-foreground: 210 25% 94%;
+    --primary: 101 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 80% 20%;
+    --secondary-foreground: 210 25% 94%;
+    --muted: 200 40% 16%;
+    --muted-foreground: 210 15% 55%;
+    --accent: 200 80% 20%;
+    --accent-foreground: 210 25% 94%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 200 40% 20%;
+    --input: 200 40% 20%;
+    --ring: 101 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .soft-card {
+    box-shadow: var(--soft-shadow);
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  }
+  .soft-card:hover {
+    box-shadow: var(--soft-shadow-hover);
+    transform: translateY(-1px);
+  }
+  .btn-sena {
+    @apply rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200;
+    border-radius: 8px;
+  }
+  .btn-sena:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+  .btn-sena:active {
+    transform: scale(0.97);
+  }
+  .btn-primary {
+    @apply btn-sena bg-primary text-primary-foreground;
+  }
+  .btn-primary:hover {
+    filter: brightness(1.1);
+  }
+  .btn-secondary {
+    @apply btn-sena bg-secondary text-secondary-foreground;
+  }
+  .btn-secondary:hover {
+    filter: brightness(1.3);
+  }
+  .btn-ghost {
+    @apply btn-sena bg-transparent text-foreground;
+  }
+  .btn-ghost:hover {
+    @apply bg-muted;
+  }
+}
